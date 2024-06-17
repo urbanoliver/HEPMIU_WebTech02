@@ -1,0 +1,57 @@
+<app-navigation></app-navigation>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <form #editForm="ngForm" [formGroup]="weaponForm">
+
+                <div class="mb-3">
+                    <label for="Name" class="form-label">Name</label>
+                    <input required pattern="[a-zA-Z0-9\s]+" name="Name" type="text" class="form-control" id="Name"
+                        formControlName="Name">
+                    @if(weaponForm.controls['Name'].invalid) {
+                    <div class="alert alert-danger mt-3">
+                        Name is required
+                    </div>
+                    }
+                </div>
+
+                <div class="mb-3">
+                    <label for="Price" class="form-label">Price</label>
+                    <input required pattern="[0-9]+$" name="Price" type="text" class="form-control" id="Price"
+                        formControlName="Price">
+                    @if(weaponForm.controls['Price'].invalid) {
+                    <div class="alert alert-danger mt-3">
+                        Price is required
+                    </div>
+                    }
+
+                </div>
+                <div class="mb-3">
+                    <label for="Manufacturer" class="form-label">Manufacturer</label>
+                    <input required pattern="[a-zA-Z0-9\s]+" name="Manufacturer" type="text" class="form-control"
+                        id="Manufacturer" formControlName="Manufacturer">
+                    @if(weaponForm.controls['Manufacturer'].invalid) {
+                    <div class="alert alert-danger mt-3">
+                        Manufacturer is required
+                    </div>
+                    }
+                </div>
+                <div class="mb-3">
+                    <label for="Quantity" class="form-label">Quantity</label>
+                    <input required pattern="[0-9]+$" name="Quantity" type="text" class="form-control" id="Quantity"
+                        formControlName="Quantity">
+                    @if(weaponForm.controls['Quantity'].invalid) {
+                    <div class="alert alert-danger mt-3">
+                        Quantity is required
+                    </div>
+                    }
+
+                </div>
+            </form>
+            <div class="text-end">
+                <button [disabled]="weaponForm.invalid" class="btn btn-outline-primary"
+                    (click)="saveWeapon()">Save</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,48 @@
+<app-navigation></app-navigation>
+<div class="row">
+    <div class="col-3">
+        <input
+        #filterInput
+        [value] = "filterText()"
+        (input)="filterText.set(filterInput.value)"
+        type="text" class="form-control">
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Price</th>
+                    <th>Manufacturer</th>
+                    <th>Quantity</th>
+                </tr>
+            </thead>
+            <tbody>
+                @for(weapon of list$ | async | search: filterText(); track  $index) {
+                    <tr>
+                        <td>{{ weapon.id }}</td>
+                        <td>{{ weapon.Name }}</td>
+                        <td>{{ weapon.Price }}</td>
+                        <td>{{ weapon.Manufacturer }}</td>
+                        <td>{{ weapon.Quantity }}</td>
+                        <td>
+                            <div class="btn-group">
+                                <div [routerLink]="['weapon-edit', weapon.id]" class="button btn btn-info">
+                                    <i class="fa fa-edit"></i>
+                                </div>
+
+                                <div (click)="onDelete(weapon)" class="button btn btn-danger">
+                                    <i class="fa fa-trash"></i>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

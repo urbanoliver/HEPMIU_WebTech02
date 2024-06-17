@@ -1,0 +1,45 @@
+.title{
+    text-align: center;
+    padding-top: 5rem;
+    color: darkslategray;
+}
+
+.description{
+    text-align: center;
+    padding-right: 5rem;
+    padding-top: 1rem;
+}
+
+.text{
+    padding-left: 25rem;
+    padding-right: 25rem;
+
+}
+
+
+.description {
+    color: darkslategray;
+    font-size: 18px;
+    margin-top: 20px;
+}
+
+
+.text {
+    color: darkslategray;
+    font-size: 16px;
+    margin-top: 20px;
+}
+
+
+.text li {
+    list-style-type: disc;
+    margin-left: 20px;
+}
+
+.text li ul {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 20px;
+}
+
+
